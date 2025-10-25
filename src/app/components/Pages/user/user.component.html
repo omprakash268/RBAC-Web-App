@@ -1,0 +1,25 @@
+<h2>Users</h2>
+<button *appHasfeature="'add-user'" (click)="add()">Add User</button>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.displayName }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ roleMap[user.roleId] }}</td>
+      <td>
+        <button *appHasfeature="'edit-user'" (click)="edit(user.id)">Edit</button>
+        <button *appHasfeature="'delete-user'" (click)="delete(user.id)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

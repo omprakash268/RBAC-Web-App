@@ -1,32 +1,30 @@
 import { Routes } from '@angular/router';
-import { LayoutComponent } from './components/layout/layout.component';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/Auth/login/login.component';
+import { LoginComponent } from './components/Pages/login/login.component';
 import { DashboardHomeComponent } from './components/Dashboard/dashboard-home/dashboard-home.component';
-import { DahboardLayoutComponent } from './components/Dashboard/dahboard-layout/dahboard-layout.component';
-
+import { UserComponent } from './components/Pages/user/user.component';
+import { RoleComponent } from './components/Pages/role/role.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  {
-    path: '',
-    component: LayoutComponent,
-    children: [
-      { path: '', component: HomeComponent },
-      { path: 'login', component: LoginComponent },
-    ],
-  },
+  { path: 'login', component: LoginComponent },
   {
     path: 'dashboard',
-    component: DahboardLayoutComponent,
-    // canActivate: [authGuard],
-    children: [
-      {
-        path: '',
-        component: DashboardHomeComponent,
-        pathMatch: 'full',
-      },
-    ],
+    component: DashboardHomeComponent,
+    canActivate: [authGuard],
+    data: { page: 'dashboard' },
   },
-  { path: '**', redirectTo: '' },
+  {
+    path: 'users',
+    component: UserComponent,
+    canActivate: [authGuard],
+    data: { page: 'users' },
+  },
+  {
+    path: 'roles',
+    component: RoleComponent,
+    canActivate: [authGuard],
+    data: { page: 'roles' },
+  },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '**', redirectTo: 'dashboard' },
 ];
-
