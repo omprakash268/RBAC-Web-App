@@ -74,7 +74,7 @@ export class UserComponent {
     this.dialog
       .open(UserModalComponent, {
         width: 'userId400px',
-        data: {},
+        data: {userId},
       })
       .afterClosed()
       .subscribe((result) => {

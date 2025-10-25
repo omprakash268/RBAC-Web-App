@@ -17,7 +17,7 @@ export class RoleService {
         id: 'role-admin',
         name: 'Admin',
         pages: ['dashboard', 'users', 'roles'],
-        features: ['add-user', 'edit-user', 'delete-user']
+        features: ['add-user', 'edit-user', 'delete-user','assign-role']
       };
       roles.push(admin);
       this.saveAllRoles(roles);

@@ -2,7 +2,7 @@ import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 import { PermissionService } from '../services/permission.service';
 
 @Directive({
-  selector: '[appHasfeature]'
+  selector: '[appHasFeature]'
 })
 export class HasfeatureDirective {
 
@@ -15,7 +15,7 @@ export class HasfeatureDirective {
   ) {}
 
   @Input()
-  set appHasfeature(feature: string) {
+  set appHasFeature(feature: string) {
     this.currentFeature = feature;
     this.update();
   }
