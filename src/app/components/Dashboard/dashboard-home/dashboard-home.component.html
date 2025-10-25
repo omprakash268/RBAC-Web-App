@@ -1,6 +1,22 @@
-<h1>Dashboard</h1>
-<p>Welcome!</p>
-<div>
-  <button (click)="navigateToPage('users')" *ngIf="canAccess('users')">Go to Users</button>
-  <button (click)="navigateToPage('roles')" *ngIf="canAccess('roles')">Go to Roles</button>
+<div class="dashboard-container">
+  <h1>Dashboard</h1>
+  <p>Welcome!</p>
+  <div class="action-btns" >
+    <button
+      (click)="navigateToPage('users')"
+      *ngIf="canAccess('users')"
+      mat-flat-button
+      color="primary"
+    >
+      Go to Users
+    </button>
+    <button
+      (click)="navigateToPage('roles')"
+      *ngIf="canAccess('roles')"
+      mat-flat-button
+      color="primary"
+    >
+      Go to Roles
+    </button>
+  </div>
 </div>
