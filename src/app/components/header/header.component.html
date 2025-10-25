@@ -1,14 +1,12 @@
 <nav class="nav-container">
-  <a routerLinclass="nav-container"k="/dashboard">Dashboard</a>
-  <a routerLink="/users">Users</a>
-  <a routerLink="/roles">Roles</a>
-  <span style="float: right">
-    <span *ngIf="auth.getCurrentUser()"
-      >Hi
-      {{
-        auth.getCurrentUser()?.displayName || auth.getCurrentUser()?.username
-      }}</span
-    >
-    <button *ngIf="auth.getCurrentUser()" (click)="logout()">Logout</button>
+  <a routerLink="/dashboard" class="nav-link" mat-button >Dashboard</a>
+  <a routerLink="/users" class="nav-link" mat-button >Users</a>
+  <a routerLink="/roles" class="nav-link" mat-button >Roles</a>
+
+  <span class="user-info">
+    <span *ngIf="auth.getCurrentUser()">
+      Hi {{ auth.getCurrentUser()?.displayName || auth.getCurrentUser()?.username }}
+    </span>
+    <button *ngIf="auth.getCurrentUser()" (click)="logout()" mat-button>Logout</button>
   </span>
 </nav>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Role, User } from '../models/model';
+import { Role, User } from '../modals/modal';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {

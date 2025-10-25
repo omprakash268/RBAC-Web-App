@@ -1,0 +1,30 @@
+.user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; // spacing between form fields
+  padding: 16px;
+
+  mat-form-field {
+    width: 100%; // full width for all fields
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 16px;
+
+    button {
+      min-width: 80px;
+    }
+  }
+}
+
+h2 {
+  margin: 0;
+  padding: 16px;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}

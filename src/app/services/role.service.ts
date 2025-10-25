@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Role } from '../models/model';
+import { Role } from '../modals/modal';
 
 @Injectable({ providedIn: 'root' })
 export class RoleService {

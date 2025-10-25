@@ -1,9 +1,13 @@
-@import '../../styles/mixins';
-
 .nav-container{
     background-color: rgba(205, 205, 205, 0.805);
     height: 4rem;
     width: 100%;
     padding: 1rem;
-    @include flex-center($justify:space-between)
+}
+.user-info{
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
 }

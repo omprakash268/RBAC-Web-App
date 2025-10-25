@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 import { RoleService } from './role.service';
-import { FeatureName, PageName } from '../models/model';
+import { FeatureName, PageName } from '../modals/modal';
 
 @Injectable({ providedIn: 'root' })
 export class PermissionService {
