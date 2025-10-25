@@ -1,4 +1,4 @@
-export type FeatureName = 'add-user' | 'edit-user' | 'delete-user';
+export type FeatureName = 'add-user' | 'edit-user' | 'delete-user' | 'assign-role';
 export type PageName = 'dashboard' | 'users' | 'roles';
 
 export interface Role {
@@ -14,4 +14,8 @@ export interface User {
   password: string;
   roleId: string;
   displayName?: string;
+}
+
+export interface UserModalData {
+  userId?: string; // optional: if present → edit mode, if absent → add mode
 }

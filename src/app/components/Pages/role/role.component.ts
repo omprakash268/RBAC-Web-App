@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Role } from '../../../models/model';
+import { Role } from '../../../modals/modal';
 import { RoleService } from '../../../services/role.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
