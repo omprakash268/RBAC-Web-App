@@ -9,6 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { HasfeatureDirective } from '../../../directives/hasfeature.directive';
 
 
+
 @Component({
   selector: 'app-role',
   imports: [CommonModule,HasfeatureDirective,MatTableModule,MatPaginatorModule,MatButtonModule],
