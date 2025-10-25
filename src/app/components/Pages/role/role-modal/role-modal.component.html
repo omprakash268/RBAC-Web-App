@@ -1,0 +1,37 @@
+<h2>{{ isEdit ? "Edit Role" : "Add Role" }}</h2>
+<form [formGroup]="form" (ngSubmit)="submit()" class="role-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Role Name</mat-label>
+    <input matInput formControlName="name" placeholder="Enter role name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Pages</mat-label>
+    <mat-select formControlName="pages" multiple>
+      <mat-option *ngFor="let page of allPages" [value]="page">{{
+        page
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Features</mat-label>
+    <mat-select formControlName="features" multiple>
+      <mat-option *ngFor="let feature of allFeatures" [value]="feature">{{
+        feature
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="actions">
+    <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      {{ isEdit ? "Update" : "Add" }}
+    </button>
+    <button mat-button type="button" (click)="cancel()">Cancel</button>
+  </div>
+</form>

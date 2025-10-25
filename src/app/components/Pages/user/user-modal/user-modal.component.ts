@@ -15,12 +15,11 @@ import {
 } from '@angular/material/dialog';
 import { FeatureName, UserModalData } from '../../../../modals/modal';
 import { CommonModule } from '@angular/common';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { HasfeatureDirective } from '../../../../directives/hasfeature.directive';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-
 
 @Component({
   selector: 'app-user-modal',
@@ -32,7 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   templateUrl: './user-modal.component.html',
   styleUrl: './user-modal.component.scss',

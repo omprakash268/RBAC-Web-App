@@ -2,10 +2,9 @@ import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 import { PermissionService } from '../services/permission.service';
 
 @Directive({
-  selector: '[appHasFeature]'
+  selector: '[appHasFeature]',
 })
 export class HasfeatureDirective {
-
   private currentFeature: string | null = null;
 
   constructor(
@@ -21,15 +20,17 @@ export class HasfeatureDirective {
   }
 
   private update() {
-    if (!this.currentFeature) { this.vc.clear(); return; }
-    
+    if (!this.currentFeature) {
+      this.vc.clear();
+      return;
+    }
+
     const allowed = this.perm.hasFeature(this.currentFeature as any);
-    
-    if (allowed){
+
+    if (allowed) {
       this.vc.createEmbeddedView(this.tpl);
     } else {
       this.vc.clear();
     }
   }
-
 }

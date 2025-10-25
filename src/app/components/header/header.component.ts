@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router, RouterModule } from '@angular/router';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule,RouterModule,MatButtonModule],
+  imports: [CommonModule, RouterModule, MatButtonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
