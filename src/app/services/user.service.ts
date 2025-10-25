@@ -11,14 +11,14 @@ export class UserService {
 
   private ensureDefaultAdminUser() {
     const users = this.getAllUsers();
-    const isAdminUser = users.find(u => u.username === 'admin');
+    const isAdminUser = users.find((u) => u.username === 'admin');
     if (!isAdminUser) {
       const adminUser: User = {
         id: 'user-admin',
         username: 'admin',
         password: 'admin123',
         roleId: 'role-admin',
-        displayName: 'Administrator'
+        displayName: 'Administrator',
       };
       users.push(adminUser);
       this.saveAllUsers(users);
@@ -30,7 +30,7 @@ export class UserService {
   }
 
   getUserById(id: string): User | undefined {
-    return this.getAllUsers().find(u => u.id === id);
+    return this.getAllUsers().find((u) => u.id === id);
   }
 
   createUser(payload: Omit<User, 'id'>): User {
@@ -42,12 +42,14 @@ export class UserService {
   }
 
   updateUser(id: string, payload: Partial<User>) {
-    const users = this.getAllUsers().map(u => u.id === id ? { ...u, ...payload } : u);
+    const users = this.getAllUsers().map((u) =>
+      u.id === id ? { ...u, ...payload } : u
+    );
     this.saveAllUsers(users);
   }
 
   deleteUser(id: string) {
-    const users = this.getAllUsers().filter(u => u.id !== id);
+    const users = this.getAllUsers().filter((u) => u.id !== id);
     this.saveAllUsers(users);
   }
 

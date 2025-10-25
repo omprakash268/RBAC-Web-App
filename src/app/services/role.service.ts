@@ -11,13 +11,15 @@ export class RoleService {
 
   private ensureDefaultAdmin() {
     const roles = this.getAllRoles();
-    const isAdminRolePresent = roles.find(r => r.name.toLowerCase() === 'admin');
+    const isAdminRolePresent = roles.find(
+      (r) => r.name.toLowerCase() === 'admin'
+    );
     if (!isAdminRolePresent) {
       const admin: Role = {
         id: 'role-admin',
         name: 'Admin',
         pages: ['dashboard', 'users', 'roles'],
-        features: ['add-user', 'edit-user', 'delete-user','assign-role']
+        features: ['add-user', 'edit-user', 'delete-user', 'assign-role'],
       };
       roles.push(admin);
       this.saveAllRoles(roles);
@@ -29,7 +31,7 @@ export class RoleService {
   }
 
   getRoleById(id: string): Role | undefined {
-    return this.getAllRoles().find(r => r.id === id);
+    return this.getAllRoles().find((r) => r.id === id);
   }
 
   createRole(role: Omit<Role, 'id'>): Role {
@@ -41,12 +43,14 @@ export class RoleService {
   }
 
   updateRole(id: string, payload: Partial<Role>) {
-    const roles = this.getAllRoles().map(r => r.id === id ? { ...r, ...payload } : r);
+    const roles = this.getAllRoles().map((r) =>
+      r.id === id ? { ...r, ...payload } : r
+    );
     this.saveAllRoles(roles);
   }
 
   deleteRole(id: string) {
-    const roles = this.getAllRoles().filter(r => r.id !== id);
+    const roles = this.getAllRoles().filter((r) => r.id !== id);
     this.saveAllRoles(roles);
   }
 

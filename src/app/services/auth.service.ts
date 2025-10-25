@@ -5,7 +5,9 @@ import { Role, User } from '../modals/modal';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private storageKey = 'rbac_current_user';
-  private _currentUser$ = new BehaviorSubject<User | null>(this.getFromStorage());
+  private _currentUser$ = new BehaviorSubject<User | null>(
+    this.getFromStorage()
+  );
   currentUser$ = this._currentUser$.asObservable();
 
   constructor() {}
@@ -13,7 +15,9 @@ export class AuthService {
   login(username: string, password: string): boolean {
     const usersJson = localStorage.getItem('rbac_users') || '[]';
     const users: User[] = JSON.parse(usersJson);
-    const user = users.find(u => u.username === username && u.password === password);
+    const user = users.find(
+      (u) => u.username === username && u.password === password
+    );
     if (user) {
       localStorage.setItem(this.storageKey, JSON.stringify(user));
       this._currentUser$.next(user);
@@ -40,11 +44,11 @@ export class AuthService {
   isAdmin(): boolean {
     const currentUser = this.getCurrentUser();
     if (!currentUser) return false;
-    
+
     const rolesJson = localStorage.getItem('rbac_roles') || '[]';
     const roles: Role[] = JSON.parse(rolesJson);
-    
-    const role = roles.find(r => r.id === currentUser.roleId);
+
+    const role = roles.find((r) => r.id === currentUser.roleId);
     return role?.name?.toLowerCase() === 'admin';
   }
 }
